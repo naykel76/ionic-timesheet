@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Timesheets</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list *ngFor="let t of timesheets">
+    <ion-item>
+      <ion-text>{{ t.weekEnding }}</ion-text>
+      <ion-text slot="end" *ngIf="t.isPaid" color="danger">{{ t.totalHours }}</ion-text>
+      <ion-text slot="end" *ngIf="t.isPaid == false" color="success">{{ t.totalHours }}</ion-text>
+      <ion-icon slot="end" name="arrow-dropright"></ion-icon>
+    </ion-item>
+  </ion-list>
+  <!-- [routerLink]="['/timesheets', timesheet.id] -->
+</ion-content>
